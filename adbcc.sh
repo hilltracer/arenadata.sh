@@ -3,6 +3,7 @@
 (
 cd "$HOME/src/adbcc"
 git submodule update --init --recursive
+sudo sysctl -w net.unix.max_dgram_qlen=4096
 cd "$HOME/src/adbcc/adcc-extension"
 make -j"$(nproc)" clean
 make -j"$(nproc)"

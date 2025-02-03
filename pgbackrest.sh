@@ -2,11 +2,14 @@
 
 (
 cd "$HOME/src/pgbackrest/src"
-./configure --enable-test
+#./configure --enable-test
+CFLAGS="-O0 -g3" ./configure --disable-optimize --enable-test
 #./configure --enable-test --prefix="$HOME/.local$GP_MAJOR"
 #./configure --prefix="$HOME/.local$GP_MAJOR"
+#CFLAGS="-O0 -g3" ./configure --disable-optimize --enable-test --prefix="$HOME/.local$GP_MAJOR"
+
 make -j"$(nproc)" clean
-exit
+#exit
 make -j"$(nproc)" install
 rm -rf "$HOME/.data/$GP_MAJOR/pgbackrest"
 if [ ! -d "$HOME/.data/$GP_MAJOR/pgbackrest" ]; then
@@ -14,6 +17,7 @@ if [ ! -d "$HOME/.data/$GP_MAJOR/pgbackrest" ]; then
     gpconfig -c archive_command -v "'PGOPTIONS=\"-c gp_session_role=utility\" pgbackrest --stanza=seg%c --config=\"$HOME/pgbackrest.conf\" archive-push %p'" --skipvalidation
     gpstop -afr
     mkdir -p "$HOME/.data/$GP_MAJOR/pgbackrest"
+    mkdir -p "$HOME/.data/$GP_MAJOR/pgbackrest/backup/log"
     PGOPTIONS="-c gp_session_role=utility" pgbackrest stanza-create --stanza=seg-1 --config="$HOME/pgbackrest.conf"
     PGOPTIONS="-c gp_session_role=utility" pgbackrest stanza-create --stanza=seg0 --config="$HOME/pgbackrest.conf"
     PGOPTIONS="-c gp_session_role=utility" pgbackrest stanza-create --stanza=seg1 --config="$HOME/pgbackrest.conf"

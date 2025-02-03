@@ -21,6 +21,7 @@ fi
 ISOLATION2_ROOT="$HOME/src/gpdb$GP_MAJOR/src/test/isolation2" make installcheck
 exit
 cd "$HOME/src/gpdb$GP_MAJOR/src/test/isolation2"
+ln -sf $HOME/src/adbcc/adcc-extension/isolation2/expected6 $HOME/src/adbcc/adcc-extension/isolation2/expected
 make -j$(nproc) clean
 make -j$(nproc) install
 #if [[ "$GP_MAJOR" == "6c" || "$GP_MAJOR" == "6u" ]]; then

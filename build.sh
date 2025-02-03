@@ -30,3 +30,6 @@ gpstop -afr
 ) 2>&1 | tee "$HOME/build.log"
 #-exec handle SIGINT nostop
 #-exec handle SIGINT pass
+
+
+#    export PYTHON3=/opt/adb6-python3.9/bin/python3
