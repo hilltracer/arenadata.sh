@@ -1,0 +1,3 @@
+executablepath: /home/gpadmin/src/gpbackup/plugins/example_plugin.bash
+options:
+  backup_plugin_version: ""

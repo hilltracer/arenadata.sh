@@ -1,0 +1,23 @@
+QD_PRIMARY_ARRAY=cdw~cdw~7000~/home/gpadmin/.data/qddir/demoDataDir-1~1~-1~0
+declare -a PRIMARY_ARRAY=(
+sdw1~sdw1~10100~/home/gpadmin/.data/sdw1/primary/gpseg0~2~0~11100
+sdw1~sdw1~10110~/home/gpadmin/.data/sdw1/primary/gpseg1~3~1~11110
+sdw2~sdw2~10220~/home/gpadmin/.data/sdw2/primary/gpseg2~9~2~11220
+sdw2~sdw2~10230~/home/gpadmin/.data/sdw2/primary/gpseg3~10~3~11230
+sdw3~sdw3~10340~/home/gpadmin/.data/sdw3/primary/gpseg4~13~4~11340
+sdw3~sdw3~10350~/home/gpadmin/.data/sdw3/primary/gpseg5~14~5~11350
+sdw3~sdw3~10360~/home/gpadmin/.data/sdw3/primary/gpseg6~17~6~11360
+sdw3~sdw3~10370~/home/gpadmin/.data/sdw3/primary/gpseg7~18~7~11370
+sdw3~sdw3~10380~/home/gpadmin/.data/sdw3/primary/gpseg8~19~8~11380
+)
+declare -a MIRROR_ARRAY=(
+sdw1~sdw1~50130~/home/gpadmin/.data/sdw1/mirror/gpseg3~4~3~51130
+sdw1~sdw1~50140~/home/gpadmin/.data/sdw1/mirror/gpseg4~5~4~51140
+sdw1~sdw1~50160~/home/gpadmin/.data/sdw1/mirror/gpseg6~6~6~51160
+sdw1~sdw1~50170~/home/gpadmin/.data/sdw1/mirror/gpseg7~7~7~51170
+sdw1~sdw1~50180~/home/gpadmin/.data/sdw1/mirror/gpseg8~8~8~51180
+sdw2~sdw2~50200~/home/gpadmin/.data/sdw2/mirror/gpseg0~11~0~51200
+sdw2~sdw2~50250~/home/gpadmin/.data/sdw2/mirror/gpseg5~12~5~51250
+sdw3~sdw3~50310~/home/gpadmin/.data/sdw3/mirror/gpseg1~15~1~51310
+sdw3~sdw3~50320~/home/gpadmin/.data/sdw3/mirror/gpseg2~16~2~51320
+)
