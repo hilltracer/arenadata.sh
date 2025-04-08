@@ -9,7 +9,7 @@
 #fi
 cd "$HOME/src/gpdb$GP_MAJOR"
 #make -j"$(nproc)" clean
-make -j"$(nproc)" install
+make -j12 install
 
 if [[ "$GP_MAJOR" == "6u" ]]; then
     if [ -n "${PYTHON3:-}" ]; then

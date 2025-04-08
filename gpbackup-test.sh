@@ -212,5 +212,7 @@ ginkgo $GINKGO_FLAGS --timeout=3h --poll-progress-after=0s end_to_end -- --custo
 #ginkgo $GINKGO_FLAGS --timeout=1m --poll-progress-after=0s integration -- --ginkgo.focus "gpbackup_helper will not error out when plugin writes something to stderr with cluster resize" --ginkgo.focus "runs restore gpbackup_helper with gzip compression" --ginkgo.focus "Generates error file when restore agent interrupted" --ginkgo.focus "runs restore gpbackup_helper without compression with plugin" --ginkgo.focus "runs restore gpbackup_helper with zstd compression with plugin" --ginkgo.focus "runs restore gpbackup_helper with gzip compression with plugin"
 #ginkgo $GINKGO_FLAGS --timeout=1m --poll-progress-after=0s integration -- --ginkgo.focus "runs restore gpbackup_helper with zstd compression with plugin"
 #ginkgo $GINKGO_FLAGS --timeout=3h --poll-progress-after=0s end_to_end -- --custom_backup_dir $CUSTOM_BACKUP_DIR --ginkgo.focus "Exclude subpartitions for given root partition in leaf-partition-data mode" --ginkgo.focus "End to End incremental tests Incremental restore No DDL no partitioning Include/Exclude schemas and tables"
+ginkgo $GINKGO_FLAGS --timeout=3h --poll-progress-after=0s end_to_end -- --custom_backup_dir $CUSTOM_BACKUP_DIR --ginkgo.focus "Can backup and concurrent restores of same backup with helpers"
+
 #make depend build install integration end_to_end
 ) 2>&1 | tee "$HOME/gpbackup-test.log"
