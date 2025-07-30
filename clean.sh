@@ -3,4 +3,4 @@
 (
 cd "$HOME/src/gpdb$GP_MAJOR"
 make -j"$(nproc)" clean
-) 2>&1 | tee "$HOME/clean.log"
+) 2>&1 | tee "$(dirname "$0")/logs/clean.log"

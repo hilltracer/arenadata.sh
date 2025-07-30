@@ -27,7 +27,7 @@ fi
 #gpconfig -c log_duration -v on --skipvalidation
 #gpconfig -c gp_log_stack_trace_lines -v false --skipvalidation
 gpstop -afr
-) 2>&1 | tee "$HOME/build.log"
+) 2>&1 | tee "$(dirname "$0")/logs/build.log"
 #-exec handle SIGINT nostop
 #-exec handle SIGINT pass
 
