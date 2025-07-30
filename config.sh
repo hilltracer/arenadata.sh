@@ -55,5 +55,5 @@ export CXXFLAGS="-DGPOS_DEBUG -O0 -ggdb -g3 -fno-omit-frame-pointer -Wclobbered"
     --with-pythonsrc-ext \
     --with-uuid=e2fs \
     $CONFIGURE_FLAGS
-) 2>&1 | tee "$(dirname "$0")/logs/config.log"
+) 2>&1 | tee "$HOME/config.log"
 #    --with-wal-segsize=1 \

@@ -16,7 +16,6 @@ $PGHOME/bin/pg_ctl -D "$DATADIRS/demo" -l logfile start -w
 export PATH=$PGHOME/bin:$PATH
 export LD_LIBRARY_PATH=$PGHOME/lib:$LD_LIBRARY_PATH
 $PGHOME/bin/createdb test
-createdb --owner="$USER" "$USER"
 
 ) 2>&1 | tee "$HOME/pg_demo.log"
 
