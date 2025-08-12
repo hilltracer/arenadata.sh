@@ -2,14 +2,16 @@
 
 (
 cd "$HOME/src/gpdb$GP_MAJOR/src/test/regress"
-for i in {1..1};
+for i in {1..100};
 do
     echo "____________________________________________________________________________________________________________________________";
     echo "                                                                                                                            ";
     echo "====================   START iteration ${i} ================================================================================";
     echo "____________________________________________________________________________________________________________________________";
     
-    PGOPTIONS="-c optimizer=off" make installcheck && PGOPTIONS="-c optimizer=on" make installcheck
+    # PGOPTIONS="-c optimizer=off" make installcheck && PGOPTIONS="-c optimizer=on" make installcheck
+    PGOPTIONS="-c optimizer=off" make -C ../../../gpcontrib/gp_toolkit installcheck && PGOPTIONS="-c optimizer=on" make -C ../../../gpcontrib/gp_toolkit installcheck 
+#    PGOPTIONS="-c optimizer=off" make installcheck
 #    PGOPTIONS="-c optimizer=off" make installcheck
     if [ $? -ne 0 ] ;
       then echo "FAILURE DETECTED";
