@@ -16,5 +16,6 @@ git apply "$(dirname "$0")/notest.diff"
 make -j"$(nproc)" install
 git apply "$(dirname "$0")/notest-revert.diff"
 #mkdir -p "$PXF_BASE"
+pxf prepare
 pxf restart
 ) 2>&1 | tee "$HOME/pxf.log"
