@@ -15,6 +15,7 @@ killall -9 postgres || echo $?
 BLDWRAP_POSTGRES_CONF_ADDONS=
 if [[ "$GP_MAJOR" == "6c" || "$GP_MAJOR" == "6u" ]]; then
     if make -C "$HOME/src/gpdb$GP_MAJOR/contrib/dummy_seclabel" -j"$(nproc)" install; then
+    # if make -C "$HOME/src/gpdb$GP_MAJOR/contrib/dummy_seclabel" PG_CONFIG="/usr/local/bin/pg_config" -j"$(nproc)" install; then
         BLDWRAP_POSTGRES_CONF_ADDONS="shared_preload_libraries=dummy_seclabel"
     fi
 elif [[ "$GP_MAJOR" == "7c" || "$GP_MAJOR" == "7u" || "$GP_MAJOR" == "8u" ]]; then
