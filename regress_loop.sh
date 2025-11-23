@@ -1,8 +1,8 @@
 #!/bin/bash -eux
 
 (
-# cd "$HOME/src/gpdb$GP_MAJOR/src/test/regress"
-cd "$HOME/src/gpdb$GP_MAJOR/src/test/isolation2"
+cd "$HOME/src/gpdb$GP_MAJOR/src/test/regress"
+# cd "$HOME/src/gpdb$GP_MAJOR/src/test/isolation2"
 for i in {1..300};
 do
     echo "____________________________________________________________________________________________________________________________";
@@ -10,10 +10,10 @@ do
     echo "====================   START iteration ${i} ================================================================================";
     echo "____________________________________________________________________________________________________________________________";
     
-#    PGOPTIONS="-c optimizer=off" make installcheck && PGOPTIONS="-c optimizer=on" make installcheck
-#    PGOPTIONS="-c optimizer=off" make -C ../../../gpcontrib/gp_toolkit installcheck && PGOPTIONS="-c optimizer=on" make -C ../../../gpcontrib/gp_toolkit installcheck 
-#    PGOPTIONS="-c optimizer=off" make installcheck
-    make installcheck
+    PGOPTIONS="-c optimizer=off" make installcheck && PGOPTIONS="-c optimizer=on" make installcheck
+  #  PGOPTIONS="-c optimizer=off" make -C ../../../gpcontrib/gp_toolkit installcheck && PGOPTIONS="-c optimizer=on" make -C ../../../gpcontrib/gp_toolkit installcheck 
+  #  PGOPTIONS="-c optimizer=off" make installcheck
+    # make installcheck
     if [ $? -ne 0 ] ;
       then echo "FAILURE DETECTED";
       break;
