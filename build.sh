@@ -1,6 +1,8 @@
 #!/bin/bash -eux
 
-exec 2>&1 &> >(tee "$HOME/build.log")
+LOGFILE="$HOME/logs/build.log"
+touch "$LOGFILE"
+exec > >(tee "$LOGFILE" > /dev/null) 2> >(tee -a "$LOGFILE" >&2)
 #(
 #export COPT="${COPT:-} -fno-omit-frame-pointer -Wno-maybe-uninitialized"
 #if [ "$GP_MAJOR" -ne "7" ]; then
