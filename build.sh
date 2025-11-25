@@ -12,7 +12,7 @@ exec > >(tee "$LOGFILE" > /dev/null) 2> >(tee -a "$LOGFILE" >&2)
 #fi
 pushd "$HOME/src/gpdb$GP_MAJOR"
     #make -j"$(nproc)" clean
-    make -j"$(nproc)" install
+    make -j12 install
     if [[ "$GP_MAJOR" == "6" ]]; then
         if [ -n "${PYTHON3:-}" ]; then
             export PYTHON="$PYTHON3"
