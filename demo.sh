@@ -16,11 +16,11 @@ killall -9 psql || echo $?
 killall -9 sleep || echo $?
 killall -9 postgres || echo $?
 BLDWRAP_POSTGRES_CONF_ADDONS=
-if [[ "$GP_MAJOR" == "6c" || "$GP_MAJOR" == "6" ]]; then
+if [[ "$GP_MAJOR" == "6c" || "$GP_MAJOR" == "6" || "$GP_MAJOR" == "6_" ]]; then
     if make -C "$HOME/src/gpdb$GP_MAJOR/contrib/dummy_seclabel" -j"$(nproc)" install; then
         BLDWRAP_POSTGRES_CONF_ADDONS="shared_preload_libraries=dummy_seclabel"
     fi
-elif [[ "$GP_MAJOR" == "7c" || "$GP_MAJOR" == "7" || "$GP_MAJOR" == "8" ]]; then
+elif [[ "$GP_MAJOR" == "7c" || "$GP_MAJOR" == "7" || "$GP_MAJOR" == "7_" || "$GP_MAJOR" == "8" || "$GP_MAJOR" == "8_" ]]; then
     if make -C "$HOME/src/gpdb$GP_MAJOR/src/test/modules/dummy_seclabel" -j"$(nproc)" install; then
         BLDWRAP_POSTGRES_CONF_ADDONS="shared_preload_libraries='dummy_seclabel'"
 #        BLDWRAP_POSTGRES_CONF_ADDONS="shared_preload_libraries='orca'"
@@ -42,9 +42,9 @@ if [[ "$GP_MAJOR" != "9" ]]; then
     pushd "$HOME/src/gpdb$GP_MAJOR/src/test/regress"
         make -j$(nproc) twophase_pqexecparams
         make -j$(nproc) tablespace-setup
-        if [[ "$GP_MAJOR" == "6c" || "$GP_MAJOR" == "6" ]]; then
+        if [[ "$GP_MAJOR" == "6c" || "$GP_MAJOR" == "6" || "$GP_MAJOR" == "6_" ]]; then
             make -j$(nproc) file_monitor
-        elif [[ "$GP_MAJOR" == "7c" || "$GP_MAJOR" == "7" || "$GP_MAJOR" == "8" ]]; then
+        elif [[ "$GP_MAJOR" == "7c" || "$GP_MAJOR" == "7" || "$GP_MAJOR" == "7_" || "$GP_MAJOR" == "8" || "$GP_MAJOR" == "8_" ]]; then
             pushd "$HOME/src/gpdb$GP_MAJOR/contrib/spi"
             make -j$(nproc) install
             popd
