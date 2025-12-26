@@ -5,7 +5,7 @@ exec 2>&1 &> >(tee "$HOME/regress.log")
 pushd "$HOME/src/gpdb$GP_MAJOR/src/test/regress"
 
 # cd "$HOME/src/gpdb$GP_MAJOR/src/test/isolation2"
-for i in {1..300};
+for i in {1..100};
 do
     echo "____________________________________________________________________________________________________________________________";
     echo "                                                                                                                            ";

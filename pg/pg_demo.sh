@@ -13,6 +13,7 @@ cd "$HOME/pg_src"
 $PGHOME/bin/initdb -D "$DATADIRS/demo"
 $PGHOME/bin/pg_ctl -D "$DATADIRS/demo" -l logfile start -w
 export PATH=$PGHOME/bin:$PATH
+export PGDATA=$DATADIRS/demo
 # export LD_LIBRARY_PATH=$PGHOME/lib:$LD_LIBRARY_PATH
 # $PGHOME/bin/createdb test
 
@@ -20,9 +21,9 @@ $PGHOME/bin/createdb --owner="$USER" "$USER"
 
 ) 2>&1 | tee "$HOME/pg_demo.log"
 
-# psql start : $PGHOME/bin/psql postgres
+# psql start : psql postgres
 
-# stop the server: $PGHOME/bin/pg_ctl -D "$DATADIRS/demo" stop
+# stop the server: pg_ctl stop
 
 
 

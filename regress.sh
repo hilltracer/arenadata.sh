@@ -46,7 +46,7 @@ mkdir -p "$HOME/src/gpdb$GP_MAJOR/src/test/regress/testtablespace_database_table
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy tidscan
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file orca_static_pruning
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file createdb function_extensions
-./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy resource_queue
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy resource_queue
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file enum
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file autovacuum-template0-segment
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file dependency
@@ -64,6 +64,7 @@ mkdir -p "$HOME/src/gpdb$GP_MAJOR/src/test/regress/testtablespace_database_table
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file workfile/spilltodisk
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file olap_setup olap_group
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file select_having
+./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 text point polygon circle copy create_misc create_index select_distinct
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file functional_deps
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file gp_metadata
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file vacuum
@@ -204,6 +205,7 @@ mkdir -p "$HOME/src/gpdb$GP_MAJOR/src/test/regress/testtablespace_database_table
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy create_misc gin gist spgist privileges init_privs collate matview lock replica_identity rowsecurity object_address tablesample
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy create_misc gin gist spgist privileges init_privs collate matview lock replica_identity rowsecurity object_address
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy create_misc gin gist spgist privileges init_privs collate matview lock replica_identity
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy create_misc gin gist spgist privileges init_privs collate matview equivclass
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy create_misc gin gist spgist privileges init_privs collate matview
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy create_misc gin gist
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file join_hash
@@ -212,7 +214,7 @@ mkdir -p "$HOME/src/gpdb$GP_MAJOR/src/test/regress/testtablespace_database_table
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file gp_unique_rowid
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file gporca
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file qp_functions_idf
-#./pg_regress --load-extension=gp_inject_fault --init-file=init_file qp_functions_idf opr_sanity
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file enum opr_sanity
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file qp_left_anti_semi_join
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file qp_subquery
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file DML_over_joins
@@ -238,9 +240,20 @@ mkdir -p "$HOME/src/gpdb$GP_MAJOR/src/test/regress/testtablespace_database_table
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int4 int8 float8 varchar char text point polygon circle copy create_aggregate create_misc create_index aggregates
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file with
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file with rowtypes
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file strings
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file guc_gp
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uao_compaction/stats
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uao_compaction/index_stats
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uaocs_compaction/stats
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uaocs_compaction/drop_column
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uao_compaction/drop_column
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uaocs_compaction/index_stats
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uao_dml/uao_dml_row
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file uao_dml/uao_dml_column
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 copy bitmapscan bitmapscan_ao join_gp
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 point polygon circle copy create_misc create_index bitmapscan bitmapscan_ao join_gp
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int8 int4 point polygon circle copy create_misc join_gp
 #./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table int4 copy join_gp
+#./pg_regress --load-extension=gp_inject_fault --init-file=init_file create_function_1 create_type create_table create_function_2 int8 int4 text point polygon circle copy create_misc create_index psql
 #make -j$(nproc) installcheck -i
 popd
